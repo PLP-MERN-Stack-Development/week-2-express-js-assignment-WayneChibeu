@@ -1,0 +1,22 @@
+# 💥 Node.js dependencies
+node_modules/
+
+# ⚙️ Environment variables
+.env
+
+# 🧪 Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🚫 System files
+.DS_Store
+Thumbs.db
+
+# 🔄 Local environment settings
+.env.local
+.env.*.local
+
+# 📦 Dependency lock files
+package-lock.json
+yarn.lock

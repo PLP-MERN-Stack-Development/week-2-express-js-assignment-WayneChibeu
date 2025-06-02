@@ -1,63 +1,106 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19691766&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
+# 🛍️ Product API – Express.js Project
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+A modular RESTful API built with **Express.js**, designed for managing a simple in-memory product store. It features organized route handling, middleware for logging and authentication, centralized error management, and environment variable support.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## 📁 Project Structure
 
-## Getting Started
+```
+project-root/
+├── server.js                     # Main server entry point
+├── routes/
+│   └── products.js              # Routes for product-related endpoints
+├── middleware/
+│   ├── logger.js                # Logs requests with timestamps
+│   ├── auth.js                  # API key authentication middleware
+│   └── errorHandler.js          # Centralized error handling middleware
+├── data/
+│   └── products.js              # In-memory product data source
+├── utils/
+│   └── errors.js                # Utility functions for custom error creation
+├── .env.example                 # Sample environment variables file
+├── package.json                 # Project metadata and dependencies
+└── README.md                    # You’re here!
+```
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
+---
+
+## 🔧 Setup Instructions
+
+1. **Clone the project and install dependencies:**
+
+   ```bash
    npm install
    ```
-4. Run the server:
+
+2. **Create a .env file based on .env.example:**
+
+   ```env
+   PORT=3000
+   API_KEY=my-secret-key
    ```
-   npm start
+
+3. **Run the server:**
+
+   ```bash
+   node server.js
    ```
 
-## Files Included
+4. **Access the API:**
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+   ```bash
+   http://localhost:3000/api/products
+   ```
 
-## Requirements
+---
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+## 🔐 Authentication
 
-## API Endpoints
+All requests to the `/api/products` endpoints require an API key header:
 
-The API will have the following endpoints:
+```
+x-api-key: your-api-key-here
+```
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+Replace `your-api-key-here` with the value in your `.env`.
 
-## Submission
+---
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+## 📬 API Endpoints
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+| Method | Endpoint              | Description              |
+|--------|-----------------------|--------------------------|
+| GET    | /api/products         | Retrieve all products    |
+| GET    | /api/products/:id     | Retrieve a product by ID |
+| POST   | /api/products         | Add a new product        |
+| PUT    | /api/products/:id     | Update a product by ID   |
+| DELETE | /api/products/:id     | Delete a product by ID   |
 
-## Resources
+---
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+## 🧪 Sample Product Format
+
+```json
+{
+  "name": "Bluetooth Speaker",
+  "description": "Portable speaker with deep bass",
+  "price": 99,
+  "category": "electronics",
+  "inStock": true
+}
+```
+
+---
+
+## 📌 Notes
+
+- No database is used — the API uses a temporary in-memory data store from `data/products.js`.
+- Great foundation for future integration with MongoDB, Mongoose, and user auth.
+
+---
+
+## 👨‍💻 Author
+
+**Wayne Chibeu**  
+MERN Stack Dev in Progress @ PLP Africa
